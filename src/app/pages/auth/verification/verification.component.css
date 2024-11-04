@@ -1,0 +1,127 @@
+.verif-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    padding: 1rem;
+  }
+  
+  .img-container{
+    height: auto;
+    max-height: 200px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+  }
+  
+  .img-logo{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .verif-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .verif-subtext {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .vst-mg2 {
+    margin-bottom: 2rem;
+  }
+  
+  .vst-mg1 {
+    margin-bottom: 1rem;
+  }
+  
+  .verif-form {  
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .verif-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+  }
+  
+  .form-group {
+  margin-bottom: 0.5rem;
+  }
+  
+  .c-inputs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .c-input {
+    flex: 1;
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgb(249, 178, 47);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 5px;
+  }
+  
+  .c-input:focus {
+    outline: none; 
+    border-color: orange;
+  }
+  
+  .submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  background-color: #28a745; 
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submit-button:hover {
+  background-color: #28a745; 
+  transform: scale(1.05);
+  }
+  
+  .mat-raised-button {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .mat-raised-button:hover {
+    transform: scale(1.05); 
+    background-color: #218838 !important;
+  }
+  
+  @media (max-width: 450px) {
+    .c-inputs {
+      flex-direction: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .c-input {
+      flex: 0 0 25%;
+      margin-bottom: 5px;
+    }
+  
+  }

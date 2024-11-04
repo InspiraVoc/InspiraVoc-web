@@ -1,0 +1,7 @@
+.img-background{
+    background-image: url('/images/BKgrd.jpeg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: repeat;
+    overflow: hidden;
+}
