@@ -1,47 +1,46 @@
 .fc {
-    width: 80%;
-    height: 400;
-    position: relative;
-    left: -100px;
-    top: -90px;
-  }
-  
-  
-  .alerta-flotante {
-    position: fixed;
-    top: 50%; 
-    left: 50%; 
-    width: auto; 
-    height: auto; /* Cambiado a auto para ajustar el contenido */
-    background-color: #ffe5b4;
-    color: #333;
-    border: 2px solid #d97102;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-    display: flex;
-    flex-direction: column; /* Cambiado a columna para alinear el contenido */
-    align-items: center; /* Centrar contenido */
-    justify-content: center; /* Centrar el contenido */
-    transform: translate(-50%, -50%); 
-  }
-  
-  .alerta-flotante button {
-    margin-top: 10px; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    background-color: #d97102; 
-    color: white;
-    cursor: pointer; 
-    font-weight: bold;
-    margin-right: 30px; 
-  }
-  
-  .alerta-flotante button:hover {
-    background-color: #c75e00; 
-    display: flex; /* Usar flexbox para alinear los botones */
-    flex-direction: column;
-  }
-  
+  width: 80%;
+  height: 400;
+  position: relative;
+  left: -100px;
+  top: -90px;
+}
+
+
+.alerta-flotante {
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  width: auto; 
+  height: auto; 
+  background-color: #ffe5b4;
+  color: #333;
+  border: 2px solid #d97102;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  transform: translate(-50%, -50%); 
+}
+
+.alerta-flotante button {
+  margin-top: 10px; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  background-color: #d97102; 
+  color: white;
+  cursor: pointer; 
+  font-weight: bold;
+  margin-right: 30px; 
+}
+
+.alerta-flotante button:hover {
+  background-color: #c75e00; 
+  display: flex; 
+  flex-direction: column;
+}

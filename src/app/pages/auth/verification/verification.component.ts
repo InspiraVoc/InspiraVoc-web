@@ -12,7 +12,6 @@ import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../shared/models/user.model';
 import { AuthService } from '../../../core/services/auth.service';
 
-
 @Component({
   selector: 'app-verification',
   standalone: true,
@@ -98,4 +97,7 @@ export class VerificationComponent {
       }  
     }
   }
+
 }
+
+
