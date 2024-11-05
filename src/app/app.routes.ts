@@ -1,18 +1,29 @@
 import { Routes } from '@angular/router';
+import { AuthLayoutComponent } from './pages/auth/auth-layout/auth-layout.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { authGuard } from './core/guard/auth.guard';
+import { VerificationComponent } from './pages/auth/verification/verification.component';
 
 export const routes: Routes = [
     {
         path: '',
+        component: AuthLayoutComponent,
         children: [
             {
                 path: '',
                 redirectTo: 'login',
                 pathMatch: 'full'
-            }
+            },
+            { path: 'login', component: LoginComponent },
+            { path: 'register', component: RegisterComponent },
+            {path: 'verification', component: VerificationComponent}
         ]
     },
     {
         path: 'app',
+        loadComponent: () => import('./shared/components/layout/layout.component'),
+        canActivate: [authGuard],
         children: [
             {
                 path: 'inicio',
@@ -24,7 +35,7 @@ export const routes: Routes = [
             },
             {
                 path:'testvocacionales',
-                loadComponent: () => import('./pages/testvocacionales/testvocacionales.component').then((m) => m.TestvocacionalesComponent) 
+                loadComponent: () => import('./pages/testvocacionales/testvocacionales.component').then((m) => m.TestVocacionalesComponent) 
             },
             {
                 path: 'pago',
