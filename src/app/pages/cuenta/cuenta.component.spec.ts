@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { CuentaComponent } from './cuenta.component';
+
+
 
 describe('CuentaComponent', () => {
   let component: CuentaComponent;
@@ -8,10 +10,13 @@ describe('CuentaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CuentaComponent]
+      imports: [ReactiveFormsModule], 
+      declarations: [ CuentaComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(CuentaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
