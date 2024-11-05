@@ -93,7 +93,7 @@ export class PagoComponent implements OnInit {
       this.totalConDescuento = this.totalBase; 
     }
 
-    this.mostrarAlerta = true; // Muestra la alerta
+    this.mostrarAlerta = true; 
     
   }
   

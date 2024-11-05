@@ -12,7 +12,7 @@
   top: 50%; 
   left: 50%; 
   width: auto; 
-  height: auto; /* Cambiado a auto para ajustar el contenido */
+  height: auto; 
   background-color: #ffe5b4;
   color: #333;
   border: 2px solid #d97102;
@@ -21,9 +21,9 @@
   z-index: 1000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
   display: flex;
-  flex-direction: column; /* Cambiado a columna para alinear el contenido */
-  align-items: center; /* Centrar contenido */
-  justify-content: center; /* Centrar el contenido */
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
   transform: translate(-50%, -50%); 
 }
 
@@ -41,6 +41,6 @@
 
 .alerta-flotante button:hover {
   background-color: #c75e00; 
-  display: flex; /* Usar flexbox para alinear los botones */
+  display: flex; 
   flex-direction: column;
 }

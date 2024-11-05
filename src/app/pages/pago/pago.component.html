@@ -1,5 +1,4 @@
 
-<!-- Alerta flotante de descuento -->
 <div *ngIf="mostrarAlerta" class="alerta-flotante">
   <div class="alerta-contenido">
     <p>{{ mensajeAlerta }}</p>
@@ -9,14 +8,12 @@
 
 <div class="pago-container">
 
-  <!-- Encabezado de Pasos -->
   <div class="pasos-header">
     <span [class.active]="pasoActual === 1">1. Carrito</span>
     <span [class.active]="pasoActual === 2">2. Datos</span>
     <span [class.active]="pasoActual === 3">3. Pago</span>
   </div>
 
-  <!-- Sección de Carrito -->
   <div *ngIf="pasoActual === 1" class="carrito-section">
     <h3>DETALLE DE COMPRA</h3>
     <p>Tienes {{ carritoItems.length }} artículos en tu reserva</p>
@@ -41,7 +38,6 @@
     <button (click)="cambiarPaso(2)">Información de Compra</button>
   </div>
   
-  <!-- Sección de Información de Compra -->
   <div *ngIf="pasoActual === 2" class="envio-section">
     <h3>INFORMACIÓN DE COMPRA</h3>
     <label>Nombre</label>
@@ -63,7 +59,6 @@
     <button (click)="cambiarPaso(3)">Método de Pago</button>
   </div>
   
-  <!-- Sección de Pago -->
   <div *ngIf="pasoActual === 3" class="pago-section">
     <div class="metodo-pago-container">
       <h3>FORMAS DE PAGO</h3>
@@ -93,7 +88,6 @@
       </div>
     </div>
 
-    <!-- Formulario de Tarjeta -->
     <div *ngIf="metodoPagoSeleccionado === 'visa' || metodoPagoSeleccionado === 'mastercard'">
       <label>Número de Tarjeta</label>
       <input type="text" placeholder="1234 5678 9876 5432">
@@ -103,20 +97,17 @@
       <input type="text" placeholder="123">
     </div>
 
-    <!-- Formulario de PayPal -->
     <div *ngIf="metodoPagoSeleccionado === 'paypal'">
       <label>Correo Electrónico de PayPal</label>
       <input type="email" placeholder="email@paypal.com">
     </div>
 
-    <!-- Código de Descuento -->
     <div class="codigo-descuento">
       <label>Código de Descuento</label>
       <input type="text" [(ngModel)]="codigoDescuento" placeholder="Ingresa tu código">
       <button (click)="aplicarDescuento()">Aplicar Descuento</button>
     </div>
 
-    <!-- Total a Pagar -->
     <div class="total">
       <p>Total a Pagar:</p>
       <p>PEN {{ totalConDescuento }}</p>

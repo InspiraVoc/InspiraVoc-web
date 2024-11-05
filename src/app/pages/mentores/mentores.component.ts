@@ -47,36 +47,32 @@ export class MentoresComponent {
       const price = this.asesorType === 'individual' ? 25 : 15;
       const duration = this.asesorType === 'individual' ? '1 hr' : '2 hr';
   
-      // Item para la reunión
       const reunionItem = {
         nombre: `Reunión Orientador (${this.asesorType})`,
         duracion: duration,
         precio: price
       };
   
-      // Item para el Test Vocacional
       const testItem = {
         nombre: 'Test Vocacional',
         duracion: '45 min',
         precio: 10
       };
   
-      // Enviar ambos items al carrito
       this.eventService.updateCarritoItem(reunionItem);
       this.eventService.updateCarritoItem(testItem);
   
-      // Agregar ambos eventos al calendario con fechas distintas
+
       this.eventService.addEvent({
         title: `Reunión ${this.asesorType} con ${mentorName}`,
-        date: '2024-11-07'  // Fecha para la reunión
+        date: '2024-11-07'  
       });
   
       this.eventService.addEvent({
         title: 'Test Vocacional',
-        date: '2024-11-15'  // Fecha distinta para el test vocacional
+        date: '2024-11-15'  
       });
   
-      // Mostrar mensaje de éxito
       this.showConfirmation = false;
       this.showSuccessMessage = true;
       setTimeout(() => {
