@@ -1,1 +1,131 @@
 <p>pago works!</p>
+
+<!-- Alerta flotante de descuento -->
+<div *ngIf="mostrarAlerta" class="alerta-flotante">
+    <div class="alerta-contenido">
+      <p>{{ mensajeAlerta }}</p>
+      <button (click)="cerrarAlerta()">Aceptar</button>
+    </div>
+  </div>
+  
+  <div class="pago-container">
+  
+    <!-- Encabezado de Pasos -->
+    <div class="pasos-header">
+      <span [class.active]="pasoActual === 1">1. Carrito</span>
+      <span [class.active]="pasoActual === 2">2. Datos</span>
+      <span [class.active]="pasoActual === 3">3. Pago</span>
+    </div>
+  
+    <!-- Sección de Carrito -->
+    <div *ngIf="pasoActual === 1" class="carrito-section">
+      <h3>DETALLE DE COMPRA</h3>
+      <p>Tienes {{ carritoItems.length }} artículos en tu reserva</p>
+      
+      <div class="item" *ngFor="let item of carritoItems">
+        <img 
+          [src]="item.nombre.includes('Reunión Orientador') ? 'assets/images/reunion.jpg' : 'assets/images/test.jpg'" 
+          alt="{{ item.nombre }}" 
+          class="item-image" 
+        />
+        <div class="item-details">
+          <h4>{{ item.nombre }}</h4>
+          <p>Duración: {{ item.duracion }}</p>
+          <p>Precio: PEN {{ item.precio }}</p>
+        </div>
+      </div>
+      
+      <div class="subtotal">
+        <p>Subtotal:</p>
+        <p>PEN {{ totalBase }}</p>
+      </div>
+      <button (click)="cambiarPaso(2)">Información de Compra</button>
+    </div>
+    
+    <!-- Sección de Información de Compra -->
+    <div *ngIf="pasoActual === 2" class="envio-section">
+      <h3>INFORMACIÓN DE COMPRA</h3>
+      <label>Nombre</label>
+      <input type="text" placeholder="Tu Nombre" [(ngModel)]="envioDatos.nombre" readonly>
+      
+      <label>Correo Electrónico</label>
+      <input type="email" placeholder="tu@gmail.com" [(ngModel)]="envioDatos.email" readonly>
+      
+      <label>País</label>
+      <input type="text" placeholder="País" [(ngModel)]="envioDatos.pais">
+      
+      <label>Ciudad</label>
+      <input type="text" placeholder="Ciudad" [(ngModel)]="envioDatos.ciudad">
+      
+      <label>Código Postal</label>
+      <input type="text" placeholder="Código Postal" [(ngModel)]="envioDatos.codigoPostal">
+      
+      <button (click)="cambiarPaso(1)">Volver al Carrito</button>
+      <button (click)="cambiarPaso(3)">Método de Pago</button>
+    </div>
+    
+    <!-- Sección de Pago -->
+    <div *ngIf="pasoActual === 3" class="pago-section">
+      <div class="metodo-pago-container">
+        <h3>FORMAS DE PAGO</h3>
+  
+        <div class="opcion-pago">
+          <input type="radio" id="tarjetaVisa" name="metodoPago" (click)="seleccionarMetodoPago('visa')" />
+          <label for="tarjetaVisa">
+            Pago con Tarjeta - Visa
+            <img src="assets/images/Visa.jpg" alt="Visa" class="icono">
+          </label>
+        </div>
+  
+        <div class="opcion-pago">
+          <input type="radio" id="tarjetaMaster" name="metodoPago" (click)="seleccionarMetodoPago('mastercard')" />
+          <label for="tarjetaMaster">
+            MasterCard
+            <img src="assets/images/Master.jpg" alt="MasterCard" class="icono">
+          </label>
+        </div>
+  
+        <div class="opcion-pago">
+          <input type="radio" id="paypal" name="metodoPago" (click)="seleccionarMetodoPago('paypal')" />
+          <label for="paypal">
+            PayPal
+            <img src="assets/images/logopay.jpg" alt="PayPal" class="icono">
+          </label>
+        </div>
+      </div>
+  
+      <!-- Formulario de Tarjeta -->
+      <div *ngIf="metodoPagoSeleccionado === 'visa' || metodoPagoSeleccionado === 'mastercard'">
+        <label>Número de Tarjeta</label>
+        <input type="text" placeholder="1234 5678 9876 5432">
+        <label>Fecha de Expiración</label>
+        <input type="text" placeholder="MM/YY">
+        <label>CVV</label>
+        <input type="text" placeholder="123">
+      </div>
+  
+      <!-- Formulario de PayPal -->
+      <div *ngIf="metodoPagoSeleccionado === 'paypal'">
+        <label>Correo Electrónico de PayPal</label>
+        <input type="email" placeholder="email@paypal.com">
+      </div>
+  
+      <!-- Código de Descuento -->
+      <div class="codigo-descuento">
+        <label>Código de Descuento</label>
+        <input type="text" [(ngModel)]="codigoDescuento" placeholder="Ingresa tu código">
+        <button (click)="aplicarDescuento()">Aplicar Descuento</button>
+      </div>
+  
+      <!-- Total a Pagar -->
+      <div class="total">
+        <p>Total a Pagar:</p>
+        <p>PEN {{ totalConDescuento }}</p>
+      </div>
+  
+      <button (click)="cambiarPaso(2)">Volver a Envío</button>
+      <button (click)="placeOrder()">Pagar</button>
+    </div>
+  
+  </div>
+  
