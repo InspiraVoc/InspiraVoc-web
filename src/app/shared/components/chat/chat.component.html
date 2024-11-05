@@ -1,1 +1,14 @@
-<p>chat works!</p>
+<div class="chat-container">
+    <div *ngFor="let message of messages" 
+         [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+      <img *ngIf="message.sender === 'bot'" src="assets/images/Soporte.png" alt="Soporte" class="icon" />
+      <p>{{ message.text }}</p>
+      <img *ngIf="message.sender === 'user'" [src]="userProfileImage" alt="Usuario" class="icon" />
+    </div>
+    
+    <div class="input-container">
+      <input [(ngModel)]="userInput" placeholder="Escribe tu mensaje aquí..." (keydown.enter)="sendMessage()" />
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+  
