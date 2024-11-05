@@ -1,0 +1,126 @@
+.side-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    position: relative;
+    top: -400px;
+}
+
+.user-profile-container {
+    background-color: #0b142e;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: #000;
+    margin-bottom: 1rem;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.993);
+}
+
+.logo-section {
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+   justify-content: center;
+}
+
+
+.logo-section img {
+   width: 12rem; 
+   height: 12rem; 
+   margin-bottom: au;
+   border-radius: 50%; 
+}
+
+
+.logo-section h2 {
+   font-size: 2rem; 
+   margin: 0.5rem 0;
+   color: #e75d0c;
+}
+
+.logo-section p {
+   color: #ffffff;
+}
+
+
+.reminders-container {
+    background-color: #0b142e;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+.reminders-header h3 {
+   color: #ffffff; 
+}
+.reminders-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.notification-icon {
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 0.5rem;
+    color: #000000;
+}
+
+
+.activity-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activity-card .icon {
+    background-color: #34A853;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: #fff;
+    margin-right: 1rem;
+}
+
+.activity-card.deactive .icon {
+    background-color: #F52952;
+}
+
+.activity-content h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #000000;
+}
+
+.activity-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #B0B3C7;
+}
+
+.options-icon {
+    margin-left: auto;
+    color: #B0B3C7;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendar-component,
+    .side-container {
+        width: 100%;
+        margin: 0;
+    }
+}
