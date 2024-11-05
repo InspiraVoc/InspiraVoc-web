@@ -187,11 +187,11 @@ input[type="text"]:focus, input[type="email"]:focus {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Para asegurarse de que esté encima de otros elementos */
+  z-index: 1000; 
 }
 
 .alerta-contenido {
@@ -203,7 +203,7 @@ input[type="text"]:focus, input[type="email"]:focus {
   text-align: center;
   width: 300px;
   max-width: 80%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .alerta-contenido p {
