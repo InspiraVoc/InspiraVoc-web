@@ -10,14 +10,10 @@ import { CommonModule } from '@angular/common';
 import { User } from '../../../shared/models/user.model';
 import { AuthService } from '../../../core/services/auth.service';
 
-
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,
-    MatFormFieldModule,MatInputModule,
-    MatButtonModule,MatSnackBarModule,
-    RouterLink,
+  imports: [CommonModule,ReactiveFormsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatSnackBarModule,RouterLink,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -64,6 +60,9 @@ export class RegisterComponent {
       const validateUser = this.authService.validation(newUser);
 
       if (validateUser) {
+        /*this.showSnackBar(
+          `Registro exitoso, bienvenido ${registeredUser.fName}`
+        );*/
         const navigationExtras: NavigationExtras = {
           state: { user: validateUser },
         };
@@ -73,4 +72,5 @@ export class RegisterComponent {
       }
     }
   }
+
 }

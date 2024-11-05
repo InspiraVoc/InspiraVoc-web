@@ -5,9 +5,7 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { authGuard } from './core/guard/auth.guard';
 import { VerificationComponent } from './pages/auth/verification/verification.component';
 
-
 export const routes: Routes = [
-    
     {
         path: '',
         component: AuthLayoutComponent,

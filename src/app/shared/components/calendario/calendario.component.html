@@ -1,1 +1,10 @@
-<p>calendario works!</p>
+<div class="main-container">
+    <div class="calendar-component">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+    <div *ngIf="mostrarAlerta" class="alerta-flotante">
+        <p>{{ mensajeAlerta }}</p>
+        <button (click)="confirmarEliminacion()">Sí</button>
+        <button (click)="cerrarAlerta()">No</button>
+    </div>
+</div>
