@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user.model';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
@@ -8,10 +9,13 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  currentUser: User | null = null;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+    });
   }
 }

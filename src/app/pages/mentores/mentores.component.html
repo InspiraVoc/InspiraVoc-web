@@ -1,1 +1,22 @@
-<p>mentores works!</p>
+<div class="mentores-container">
+  <div class="mentor" *ngFor="let mentor of mentores">
+    <img [src]="mentor.image" alt="Imagen del mentor" class="mentor-image" />
+    <button (click)="openTypeSelectionDialog(mentor)" class="choose-button">Elegir orientador</button>
+  </div>
+</div>
+
+<div class="confirmation-dialog" *ngIf="showTypeSelection">
+  <p>¿Quiere reservar el mentor para una asesoría individual o grupal?</p>
+  <button (click)="selectType('individual')">Individual</button>
+  <button (click)="selectType('grupal')">Grupal</button>
+</div>
+
+<div class="confirmation-dialog" *ngIf="showConfirmation">
+  <p>¿Está seguro de agendar con {{ selectedMentor?.name }}?</p>
+  <button (click)="confirmSelection()">Sí</button>
+  <button (click)="cancelSelection()">No</button>
+</div>
+
+<div class="success-message" *ngIf="showSuccessMessage">
+  <p>El mentor ha sido añadido al carrito.</p>
+</div>

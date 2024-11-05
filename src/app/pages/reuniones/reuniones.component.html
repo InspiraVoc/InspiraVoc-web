@@ -1,1 +1,35 @@
-<p>reuniones works!</p>
+<div class="video-call-container">
+    <div class="left-section">
+      <img src="assets/images/videocam.png" alt="Mentor" class="mentor-image">
+    </div>
+    <div class="right-section">
+      <video #userVideo autoplay muted></video>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button (click)="toggleCamera()">
+      <span class="material-icons-sharp">
+        {{ isCameraEnabled ? 'videocam' : 'videocam_off' }}
+      </span>
+    </button>
+    <button (click)="toggleAudio()">
+      <span class="material-icons-sharp">
+        {{ isAudioEnabled ? 'mic' : 'mic_off' }}
+      </span>
+    </button>
+    <button (click)="toggleChat()">
+      <span class="material-icons-sharp">
+        {{ isChatOpen ? 'chat' : 'chat_bubble_outline' }}
+      </span>
+    </button>
+  </div>
+
+  <div class="chat-panel" *ngIf="isChatOpen">
+    <div class="chat-messages">
+      <p *ngFor="let message of chatMessages">{{ message }}</p>
+    </div>
+    <input [(ngModel)]="newMessage" placeholder="Escribe un mensaje..." (keyup.enter)="sendMessage()">
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+  

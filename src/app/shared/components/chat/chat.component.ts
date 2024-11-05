@@ -24,6 +24,8 @@ export class ChatComponent implements OnInit {
       text: 'Hola. Gracias por contactar con el soporte técnico de InspiraVoc. ¿En qué te puedo ayudar hoy?'
     });
     
+    const currentUser = this.authService.getCurrentUser();
+    this.userProfileImage = currentUser?.profileImage || 'assets/images/Logo2.png';
   }
 
   async sendMessage() {

@@ -9,9 +9,12 @@
   
     <div class="flex items-center space-x-3 mr-4">
       <div class="relative">
+        <img id="userImage" [src]="currentUser?.profileImage || 'assets/images/default-profile.jpg'" alt="Avatar del usuario" class="w-10 h-10 rounded-full border border-gray-300 object-cover">
       </div>
   
       <div class="text-center">
+        <p class="font-bold text-gray-800 text-lg">Hola, {{ currentUser?.firstName }}</p>
+        <p class="text-sm text-gray-500">{{ currentUser?.role }}</p>
       </div>
     </div>
   </div>

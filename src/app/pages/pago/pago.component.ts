@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { AuthService } from '../../core/services/auth.service';
 import { EventService } from '../../core/services/event.service';
+import { User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-pago',
@@ -48,6 +49,12 @@ export class PagoComponent implements OnInit {
     this.totalBase = this.calcularTotalBase();
     this.totalConDescuento = this.totalBase; 
 
+    this.authService.currentUser$.subscribe((user: User | null) => {
+      if (user) {
+        this.envioDatos.nombre = user.firstName;
+        this.envioDatos.email = user.email;
+      }
+    });
 
     this.eventService.carritoItem$.subscribe((items) => {
       console.log('Actualización de items en carrito:', items); 
@@ -86,7 +93,7 @@ export class PagoComponent implements OnInit {
       this.totalConDescuento = this.totalBase; 
     }
 
-    this.mostrarAlerta = true; 
+    this.mostrarAlerta = true; // Muestra la alerta
     
   }
   
