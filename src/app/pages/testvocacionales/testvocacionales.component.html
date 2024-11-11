@@ -1,23 +1,23 @@
 <form *ngIf="!isSubmitted" (ngSubmit)="onSubmit()" #testForm="ngForm">
-    <h1>TEST DE PRE-ORIENTACIÓN VOCACIONAL</h1>
-    <h2>Las siguientes frases hacen referencia a intereses y preferencias relacionadas con áreas de estudio y trabajo. Señala en cada caso:</h2>
+  <h1>TEST DE PRE-ORIENTACIÓN VOCACIONAL</h1>
+  <h2>Las siguientes frases hacen referencia a intereses y preferencias relacionadas con áreas de estudio y trabajo. Señala en cada caso:</h2>
 
-    <div *ngFor="let question of questions" class="question-container">
-      <div class="question-text">{{ question.text }}</div>
-      <div class="options">
-        <label *ngFor="let option of question.options" class="option-label">
-          <input type="radio" name="{{ question.text }}" [(ngModel)]="answers[questions.indexOf(question)]" [value]="option" />
-          {{ option }}
-        </label>
-      </div>
+  <div *ngFor="let question of questions" class="question-container">
+    <div class="question-text">{{ question.text }}</div>
+    <div class="options">
+      <label *ngFor="let option of question.options" class="option-label">
+        <input type="radio" name="{{ question.text }}" [(ngModel)]="answers[questions.indexOf(question)]" [value]="option" />
+        {{ option }}
+      </label>
     </div>
-
-    <button type="submit" [disabled]="!testForm.valid">Enviar</button>
-  </form>
-
-
-  <div *ngIf="isSubmitted" class="result-form">
-    <h1>RESULTADOS DEL TEST</h1>
-    <p class="result-textC">{{ resultC }}</p>
-    <p class="result-text">{{ result }}</p>
   </div>
+
+  <button type="submit" [disabled]="!testForm.valid">Enviar</button>
+</form>
+
+
+<div *ngIf="isSubmitted" class="result-form">
+  <h1>RESULTADOS DEL TEST</h1>
+  <p class="result-textC">{{ resultC }}</p>
+  <p class="result-text">{{ result }}</p>
+</div>

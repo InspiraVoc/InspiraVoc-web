@@ -4,7 +4,7 @@ export interface User {
   lastName: string;
   email: string;
   password: string;
-  role: string;
+  role: 'Estudiante' | 'Mentor' | '';
   phone: string;
   profileImage?: string;
   preferences?: {
@@ -12,4 +12,8 @@ export interface User {
     language: string;
     timezone: string;
   };
+  vocationalTestResult?: {
+    category: string;
+    description: string;
+  }; 
 }

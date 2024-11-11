@@ -1,5 +1,14 @@
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Buscar mentor..."
+    [(ngModel)]="searchTerm"
+    (input)="filterMentores()"
+    class="search-bar"
+  />
+</div>
 <div class="mentores-container">
-  <div class="mentor" *ngFor="let mentor of mentores">
+  <div class="mentor" *ngFor="let mentor of filteredMentores">
     <img [src]="mentor.image" alt="Imagen del mentor" class="mentor-image" />
     <button (click)="openTypeSelectionDialog(mentor)" class="choose-button">Elegir orientador</button>
   </div>

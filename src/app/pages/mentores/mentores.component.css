@@ -66,3 +66,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
   }
+  .search-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  

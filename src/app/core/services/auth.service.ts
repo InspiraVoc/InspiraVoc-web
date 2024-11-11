@@ -3,11 +3,52 @@ import { BehaviorSubject } from 'rxjs';
 import { User } from '../../shared/models/user.model';
 import { UserCredentials } from '../../shared/models/user-credentials.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   private users: User[] = [];
+  private mentores: User[] = [
+    {
+      id:0,
+      firstName: 'Carlos',
+      lastName: 'Méndez',
+      email: 'cMendez@gmail.com',
+      password: 'password123',
+      role: 'Mentor',
+      phone: '123456789',
+      
+    },
+    {
+      id:0,
+      firstName: 'Jorge',
+      lastName: 'Ramírez',
+      email: 'jRamirez@gmail.com',
+      password: 'password123',
+      role: 'Mentor',
+      phone: '123456789',
+    },
+    {
+      id:0,
+      firstName: 'Laura',
+      lastName: 'Hernández',
+      email: 'lHernandez@gmail.com',
+      password: 'password123',
+      role: 'Mentor',
+      phone: '123456789',
+    },
+    {
+      id:0,
+      firstName: 'María',
+      lastName: 'Lopez',
+      email: 'mLopez@gmail.com',
+      password: 'password123',
+      role: 'Mentor',
+      phone: '123456789',
+    },
+  ]
   private _currentUser: User | null = null;
 
   private _currentUserSubject = new BehaviorSubject<User | null>(null);
@@ -15,6 +56,7 @@ export class AuthService {
 
   constructor() {
     this.loadUsers();
+    this.agregarMentores();
     this.loadCurrentUser();
   }
 
@@ -31,6 +73,20 @@ export class AuthService {
     const savedUser = localStorage.getItem('currentUser');
     this._currentUser = savedUser ? JSON.parse(savedUser) : null;
     this._currentUserSubject.next(this._currentUser);
+  }
+
+  private agregarMentores(){
+    this.mentores.forEach(mentor =>{
+      if(!(this.users.some(user => user.email === mentor.email))){
+        const nextId = this.users.reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1;
+        const userN: User = {
+          ...mentor,
+          id: nextId,
+        };
+        this.users.push(userN);
+      }
+    })
+    this.saveUsers();
   }
 
   get isAuthenticated(): boolean {
@@ -65,9 +121,11 @@ export class AuthService {
       return null;
     }
 
+    const nextId = this.users.reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1;
+
     const user: User = {
       ...newUser,
-      id: this.users.length + 1
+      id: nextId,
     };
 
     this.users.push(user);
@@ -117,4 +175,28 @@ export class AuthService {
     };
     return user;
   }
+  getCurrentUserRole(): string | null {
+    return this._currentUser ? this._currentUser.role : null;
+  }
+  getEstudiantes(): User[] {
+    return this.users.filter(user => user.role === 'Estudiante');
+  }
+  updateVocationalTestResult(category: string, description: string): void {
+    if (this._currentUser) {
+      this._currentUser.vocationalTestResult = {
+        category,
+        description,
+      };
+      this.saveUsers(); 
+      localStorage.setItem('currentUser', JSON.stringify(this._currentUser));
+      this._currentUserSubject.next(this._currentUser);
+      
+      const userIndex = this.users.findIndex(u => u.id === this._currentUser?.id);
+      if (userIndex !== -1) {
+        this.users[userIndex] = this._currentUser;
+        this.saveUsers();
+      }
+    }
+  }
+  
 }

@@ -1,0 +1,80 @@
+.video-call-container {
+    display: flex;
+    height: calc(100vh - 100px);
+    padding: 20px;
+  }
+  
+  .left-section, .right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left-section {
+    background-color: #f5f5f5;
+  }
+  
+  .mentor-image {
+    max-width: 80%;
+    border-radius: 8px;
+  }
+  
+  .right-section video {
+    width: 100%;
+    max-width: 80%;
+    border-radius: 8px;
+    background-color: #000;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ff7f11;
+  }
+  
+  .chat-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  .chat-panel input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 60px);
+    margin-right: 10px;
+  }
+  
+  .chat-panel button {
+    background-color: #ff7f11;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  

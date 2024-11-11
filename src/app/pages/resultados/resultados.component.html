@@ -1,0 +1,26 @@
+<div class="students-container">
+    <input type="text" placeholder="Buscar estudiante..." [(ngModel)]="searchTerm" (input)="filterStudents()" class="search-bar" />
+
+    <div class="cards-container">
+      <div class="student-card" *ngFor="let estudiante of filteredStudents; let i = index">
+        <img [src]="estudiante.profileImage || 'assets/images/Logo1.png'" alt="Foto de {{ estudiante.firstName }}" class="profile-photo" />
+
+        <h2>{{ estudiante.firstName }} {{ estudiante.lastName }}</h2>
+
+        <p class="vocational-test" *ngIf="!estudiante.vocationalTestResult">
+          Test vocacional:
+          <span class="status-circle red"></span>
+        </p>
+
+        
+        <div *ngIf="showResultDetails[i] && estudiante.vocationalTestResult">
+            <p><strong>Categoría:</strong> {{ estudiante.vocationalTestResult.category }}</p>
+            <p><strong>Descripción:</strong> {{ estudiante.vocationalTestResult.description }}</p>
+          </div>
+
+        <button *ngIf="estudiante.vocationalTestResult" class="contact-button" (click)="toggleResultDetails(i)">
+          {{ showResultDetails[i] ? 'Ocultar Resultados' : 'Ver los Resultados' }}
+        </button>
+      </div>
+    </div>
+</div>
