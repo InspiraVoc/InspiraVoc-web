@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-    background-image: url("assets/images/Fondo.png"); 
+    background-image: url("public/assets/images/Fondo.png"); 
     background-repeat: repeat;
     background-size: 1000px 1000px; 
 } 
