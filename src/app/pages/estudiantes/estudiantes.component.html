@@ -3,7 +3,7 @@
   
     <div class="cards-container">
         <div class="student-card" *ngFor="let estudiante of filteredStudents; let i = index">
-            <img [src]="estudiante.profileImage || './assets/images/Logo1.png'" alt="Foto de {{ estudiante.firstName }}" class="profile-photo" />
+            <img [src]="estudiante.profileImage || 'public/assets/images/Logo1.png'" alt="Foto de {{ estudiante.firstName }}" class="profile-photo" />
   
             <h2>{{ estudiante.firstName }} {{ estudiante.lastName }}</h2>
   
