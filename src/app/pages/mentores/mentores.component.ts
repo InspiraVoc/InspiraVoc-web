@@ -17,10 +17,10 @@ interface Mentor {
 })
 export class MentoresComponent {
   mentores = [
-    { name: 'Carlos Méndez', image: 'public/assets/images/mentor1.png' },
-    { name: 'Jorge Ramírez', image: 'public/assets/images/mentor2.png' },
-    { name: 'Laura Hernández', image: 'public/assets/images/mentor3.png' },
-    { name: 'María López', image: 'public/assets/images/mentor4.png' }
+    { name: 'Carlos Méndez', image: 'assets/images/mentor1.png' },
+    { name: 'Jorge Ramírez', image: 'assets/images/mentor2.png' },
+    { name: 'Laura Hernández', image: 'assets/images/mentor3.png' },
+    { name: 'María López', image: 'assets/images/mentor4.png' }
   ];
   
   filteredMentores = [...this.mentores];
